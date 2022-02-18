@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.random import default_rng
 import torch
 
 ## -- GBM PROC GENERATION
@@ -25,7 +26,7 @@ def generate_correlated_gbms_with_timeline(mu, sigma, cov, n_points = 100, rng =
     gbm1 = np.exp((mu - sigma ** 2 / 2.) * timeline + sigma * bm1)
     gbm2 = np.exp((mu - sigma ** 2 / 2.) * timeline + sigma * bm2)
 
-    return gbm1, gbm2, timeline
+    return torch.tensor(gbm1), torch.tensor(gbm2), torch.tensor(timeline)
 
 def generate_correlated_gbms_piecewise_lin(mu, sigma, cov, n_points = 100, rng = default_rng(69)):
     gbm1, gbm2, timeline = generate_correlated_gbms_with_timeline(mu, sigma, cov, n_points, rng)
@@ -36,16 +37,16 @@ def generate_correlated_gbms_lead_lag(mu, sigma, cov, n_points = 100, rng = defa
     return lead_lag_embedding_row_vct(gbm1), lead_lag_embedding_row_vct(gbm2)
 
 def generate_gbm_iid_samples(cov, mu = 0.02, sigma = 0.3, genf = generate_correlated_gbms_lead_lag, n_paths = 60, m_time_points = 100):
-    a1 = []
-    a2 = []
+    a1 = torch.zeros(n_paths, m_time_points, 2)
+    a2 = torch.zeros(n_paths, m_time_points, 2)
 
     rng = default_rng(69)
 
     for i in range(n_paths):
         sig1, sig2 = genf(0.02, 0.3, cov, m_time_points, rng)
-        a1.append(sig1)
-        a2.append(sig2)
-    return torch.Tensor(a1), torch.Tensor(a2)
+        a1[i, :, :] = sig1
+        a2[i, :, :] = sig2
+    return a1, a2
 
 
 ## -- AR PROC GENERATION
@@ -60,13 +61,11 @@ def gen_ar_processes_pair(n, corr, a = 0.8, rng = np.random.default_rng(1234)):
         
     return x
 
-def gen_ar_iid_samples_burn_in(n_timesteps, m_samples, corr = 0, a = 0.8, rng = np.random.default_rng(1234)):
-    burn_in_time = 10000
-
+def gen_ar_iid_samples_burn_in(n_timesteps, m_samples, corr = 0, a = 0.8, rng = np.random.default_rng(1234), burn_in_time = 1000):
     x_short_samples = torch.zeros(m_samples, n_timesteps, 2)
 
     for i in range(m_samples):
-        process = gen_ar_processes(burn_in_time+n_timesteps, corr, a, rng)
+        process = gen_ar_processes_pair(burn_in_time+n_timesteps, corr, a, rng)
         x_short_samples[i, :, :] = process[:, burn_in_time:].T
 
     return x_short_samples
@@ -77,7 +76,7 @@ def gen_ar_iid_samples_burn_in(n_timesteps, m_samples, corr = 0, a = 0.8, rng = 
 def lead_lag_embedding_row_vct(path):
     path = path.reshape(-1, 1)
 
-    return np.concatenate((path[1:], path[:-1]), axis = 1)
+    return torch.cat((path[1:], path[:-1]), dim = 1)
 
 def piecewise_linear_embedding_row_vct(path, time):
     assert len(path) == len(time), "Path and Time lengths must be equal"
