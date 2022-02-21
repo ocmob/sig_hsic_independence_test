@@ -36,14 +36,12 @@ def generate_correlated_gbms_lead_lag(mu, sigma, cov, n_points = 100, rng = defa
     gbm1, gbm2, timeline = generate_correlated_gbms_with_timeline(mu, sigma, cov, n_points + 1, rng)    
     return lead_lag_embedding_row_vct(gbm1), lead_lag_embedding_row_vct(gbm2)
 
-def generate_gbm_iid_samples(cov, mu = 0.02, sigma = 0.3, genf = generate_correlated_gbms_lead_lag, n_paths = 60, m_time_points = 100):
+def generate_gbm_iid_samples(cov, mu = 0.02, sigma = 0.3, genf = generate_correlated_gbms_lead_lag, n_paths = 60, m_time_points = 100, rng = default_rng(69)):
     a1 = torch.zeros(n_paths, m_time_points, 2)
     a2 = torch.zeros(n_paths, m_time_points, 2)
 
-    rng = default_rng(69)
-
     for i in range(n_paths):
-        sig1, sig2 = genf(0.02, 0.3, cov, m_time_points, rng)
+        sig1, sig2 = genf(mu, sigma, cov, m_time_points, rng)
         a1[i, :, :] = sig1
         a2[i, :, :] = sig2
     return a1, a2
@@ -51,11 +49,34 @@ def generate_gbm_iid_samples(cov, mu = 0.02, sigma = 0.3, genf = generate_correl
 
 ## -- AR PROC GENERATION
 
+def gen_ar_processes_pair_extinct_gaussian(n, extinction_rate = 0.5, a = 0.8, rng = np.random.default_rng(1234)):
+    out = None
+
+    while True:
+        z = torch.tensor(rng.multivariate_normal([0, 0] , [[1, 0], [0, 1]], 2*n))
+        d = torch.tensor(rng.uniform(size = 2*n))
+
+        if out is None:
+            out = z[(z[:, 0]**2 + z[:, 1]**2 > 1) | (d > extinction_rate)]
+        else:
+            out = torch.cat((out, z[(z[:, 0]**2 + z[:, 1]**2 > 1) | (d > extinction_rate)]), axis = 0)
+
+        if out.shape[0] > n:
+            out = out[:n, :]
+            break
+
+    x = torch.zeros(2, n)
+    x[:, 0] = z[0, :]
+
+    for i, zi in enumerate(out[1:, :]):
+        x[:, i+1] = a*x[:, i] + zi 
+        
+    return x
+
 def gen_ar_processes_pair(n, corr, a = 0.8, rng = np.random.default_rng(1234)):
     z = torch.tensor(rng.multivariate_normal([0, 0] , [[1, corr], [corr, 1]], n))
     x = torch.zeros(2, n)
     x[:, 0] = z[0, :]
-    a = 0.8
     for i, zi in enumerate(z[1:, :]):
         x[:, i+1] = a*x[:, i] + zi 
         
@@ -66,6 +87,15 @@ def gen_ar_iid_samples_burn_in(n_timesteps, m_samples, corr = 0, a = 0.8, rng = 
 
     for i in range(m_samples):
         process = gen_ar_processes_pair(burn_in_time+n_timesteps, corr, a, rng)
+        x_short_samples[i, :, :] = process[:, burn_in_time:].T
+
+    return x_short_samples
+
+def gen_ar_iid_samples_extinct_gaussian_burn_in(n_timesteps, m_samples, extinction_rate = 0.5, a = 0.8, rng = np.random.default_rng(1234), burn_in_time = 1000):
+    x_short_samples = torch.zeros(m_samples, n_timesteps, 2)
+
+    for i in range(m_samples):
+        process = gen_ar_processes_pair_extinct_gaussian(burn_in_time+n_timesteps, extinction_rate, a, rng)
         x_short_samples[i, :, :] = process[:, burn_in_time:].T
 
     return x_short_samples

@@ -80,12 +80,10 @@ def shuffle_gram_matrix(gram_matrix, generator = torch.Generator()):
 
     return shuffled
 
-def get_hsic_null_dist_mc_matrix_shuffle_approx(X, Y, dyadic_order = 1, static_kernel = sigkernel.RBFKernel(sigma=0.5), no_shuffles = 50):
+def get_hsic_null_dist_mc_matrix_shuffle_approx(gram_x, gram_y, dyadic_order = 1, static_kernel = sigkernel.RBFKernel(sigma=0.5), no_shuffles = 50):
     rng = torch.Generator()
     rng.manual_seed(1234)
 
-    gram_x, gram_y = get_gram_matrices(X, Y, dyadic_order = dyadic_order, static_kernel = static_kernel)
-    
     hist = []
     
     for i in tqdm(range(no_shuffles)):
@@ -122,7 +120,7 @@ def get_test_result(X, Y, dyadic_order = 1, static_kernel = sigkernel.RBFKernel(
 def get_test_result_matrix_shuffle(X, Y, dyadic_order = 1, static_kernel = sigkernel.RBFKernel(sigma=0.5), no_shuffles = 50):
     gram_x, gram_y = get_gram_matrices(X, Y, dyadic_order, static_kernel)
     hsic_score = get_hsic_score(gram_x, gram_y)
-    null_pdf_empirical = get_hsic_null_dist_mc_matrix_shuffle_approx(X, Y, dyadic_order, static_kernel, no_shuffles)
+    null_pdf_empirical = get_hsic_null_dist_mc_matrix_shuffle_approx(gram_x, gram_y, dyadic_order, static_kernel, no_shuffles)
 
     p_value = (null_pdf_empirical > hsic_score).sum()/len(null_pdf_empirical)
 
