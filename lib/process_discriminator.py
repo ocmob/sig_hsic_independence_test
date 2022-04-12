@@ -16,15 +16,17 @@ def psi(x, M=4, a=1):
 def norm(x):
     return np.linalg.norm(x)
 
+def f(z, a, keys):
+    dilation = np.array([z ** (2*len(t)) for t in keys])
+    out = np.dot(a, dilation)
+    return out
+
 def phi(x, order):
+    keys = get_keys(2, order)
     x = np.array(x)
-
     a = x ** 2
-    a[0] -= psi(norm(x))
 
-    f = lambda z: np.dot(a, [z ** (2 * m) for m in range(len(a))])
-
-    return brentq(f, 0, 1.1)
+    return max(min(brentq(lambda z: f(z, a, keys) - psi(norm(x)), 0, 1.001), 1), 0)
 
 def get_keys(dim, order):
     s = tosig.sigkeys(dim, order)
