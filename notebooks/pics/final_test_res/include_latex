@@ -1,0 +1,286 @@
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__lin.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__RBF_0_5.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__RBF_1_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__RBF_4_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__RBF_6_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_extinct__RBF_8_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_extinct_RBF_8_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__lin.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsplincorr__lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__RBF_0_5.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_lincorr_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__RBF_1_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_lincorr_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__RBF_4_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_lincorr_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__RBF_6_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_lincorr_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_lincorr__RBF_8_0.png}
+    \caption{Type II error for the NSP kernel across different parameter values}
+    \label{fig:type2_nsp_lincorr_RBF_8_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__lin.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nspnull__lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__RBF_0_5.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nsp_null_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__RBF_1_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nsp_null_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__RBF_4_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nsp_null_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__RBF_6_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nsp_null_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_nsp_null__RBF_8_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_nsp_null_RBF_8_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__lin.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spdeextinct__lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__RBF_0_5.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_extinct_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__RBF_1_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_extinct_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__RBF_4_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_extinct_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__RBF_6_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_extinct_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_extinct__RBF_8_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_extinct_RBF_8_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__lin.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spdelincorr__lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__RBF_0_5.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_lincorr_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__RBF_1_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_lincorr_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__RBF_4_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_lincorr_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__RBF_6_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_lincorr_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_lincorr__RBF_8_0.png}
+    \caption{Type II error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_lincorr_RBF_8_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__lin.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spdenull__lin}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__RBF_0_5.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_null_RBF_0_5}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__RBF_1_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_null_RBF_1_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__RBF_4_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_null_RBF_4_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__RBF_6_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_null_RBF_6_0}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.6]{images/final_simulation_results/type2_spde_null__RBF_8_0.png}
+    \caption{Type I error for the Signature-PDE kernel across different parameter values}
+    \label{fig:type2_spde_null_RBF_8_0}
+\end{figure}
